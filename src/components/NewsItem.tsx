@@ -4,17 +4,18 @@ import {
   CardSubtitle, CardBody
 } from 'reactstrap';
 
-import { NO_IMG_LINK } from '../constants';
+const NewsItem: React.FC<NewsConfig> = ({
+  author, title, description, urlToImage
+}) => {
 
-const NewsItem = () => {
   return (
     <Card>
-      <CardImg top width="100%" src={NO_IMG_LINK} alt="Card image cap" />
+      <CardImg top width="100%" src={urlToImage} alt="news-image" />
       <CardBody>
-        <CardTitle tag="h5">Card title</CardTitle>
-        <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-        <Button>Button</Button>
+        <CardTitle tag="h5">{title}</CardTitle>
+        <CardSubtitle tag="h6" className="mb-2 text-muted">{author}</CardSubtitle>
+        <CardText>{description}</CardText>
+        <Button color="primary" style={{ float: "right" }}>Detail</Button>
       </CardBody>
     </Card>
   )
