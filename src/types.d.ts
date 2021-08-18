@@ -5,6 +5,7 @@ interface NewsConfig {
   description?: string;
   urlToImage?: string;
   content?: string;
+  url?: string;
 }
 
 type ArrayOfNewsObject = Array<NewsConfig>;

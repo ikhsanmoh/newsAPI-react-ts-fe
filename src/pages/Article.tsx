@@ -18,10 +18,16 @@ const Article: React.FC<Props> = ({ newsList }) => {
         <h1>{newsList[id - 1].title}</h1>
       </Row>
       <Row className="mb-4">
-        <h5>{newsList[id - 1].author}</h5>
+        <p style={{ color: '#444' }}>By {newsList[id - 1].author}</p>
       </Row>
       <Row>
         <p>{newsList[id - 1].content}</p>
+      </Row>
+      <Row>
+        <p>
+          <span>SOURCE: </span>
+          <a href={newsList[id - 1].url} target="_blank" rel="noreferrer">{newsList[id - 1].url}</a>
+        </p>
       </Row>
     </Row>
   )
