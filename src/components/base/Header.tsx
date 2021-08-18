@@ -9,7 +9,7 @@ import {
   NavLink,
   Container
 } from 'reactstrap';
-import { APP_NAME } from '../../constants'
+import { APP_NAME, GITHUB_REPO_LINK } from '../../constants'
 import { Link } from 'react-router-dom'
 
 export const Header = () => {
@@ -34,7 +34,7 @@ export const Header = () => {
               </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="#">My Repo</NavLink>
+              <NavLink href={GITHUB_REPO_LINK} target="_blank">My Repo</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
