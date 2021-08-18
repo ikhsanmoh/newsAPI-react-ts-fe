@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -10,6 +10,7 @@ import {
   Container
 } from 'reactstrap';
 import { APP_NAME } from '../../constants'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +20,18 @@ export const Header = () => {
   return (
     <Navbar color="dark" dark expand="md" className="p-3">
       <Container>
-        <NavbarBrand href="/">{APP_NAME}</NavbarBrand>
+        <NavbarBrand>
+          <Link style={{ textDecoration: 'inherit', color: 'inherit' }} to="/">
+            {APP_NAME}
+          </Link>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="#">Home</NavLink>
+              <Link style={{ textDecoration: 'inherit', color: 'inherit' }} to="/">
+                <NavLink>Home</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
               <NavLink href="#">My Repo</NavLink>

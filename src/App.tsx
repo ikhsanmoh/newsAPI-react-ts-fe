@@ -1,3 +1,9 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 import { useState, useEffect } from 'react';
 import API from './config/api';
 
@@ -5,6 +11,7 @@ import { Container } from 'reactstrap';
 import { Header } from './components/base/Header';
 import NewsList from './components/NewsList';
 import Loading from './components/Loading';
+import Article from "./pages/Article";
 
 const App = () => {
   const [newsList, setNewsList] = useState<ArrayOfNewsObject>([])
@@ -28,10 +35,19 @@ const App = () => {
 
   return (
     <div style={{ minHeight: '100vh' }} className="bg-light">
-      <Header />
-      <Container className="py-3">
-        {loading ? <Loading /> : <NewsList newsList={newsList} />}
-      </Container>
+      <Router>
+        <Header />
+        <Container className="py-3">
+          <Switch>
+            <Route path="/article/:id">
+              <Article newsList={newsList} />
+            </Route>
+            <Route exact path="/">
+              {loading ? <Loading /> : <NewsList newsList={newsList} />}
+            </Route>
+          </Switch>
+        </Container>
+      </Router>
     </div>
   );
 }

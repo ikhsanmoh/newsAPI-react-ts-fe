@@ -3,9 +3,10 @@ import {
   CardTitle, CardText,
   CardSubtitle, CardBody
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 const NewsItem: React.FC<NewsConfig> = ({
-  author, title, description, urlToImage
+  id, author, title, description, urlToImage
 }) => {
 
   return (
@@ -15,7 +16,9 @@ const NewsItem: React.FC<NewsConfig> = ({
         <CardTitle tag="h5">{title}</CardTitle>
         <CardSubtitle tag="h6" className="mb-2 text-muted">{author}</CardSubtitle>
         <CardText>{description}</CardText>
-        <Button color="primary" style={{ float: "right" }}>Detail</Button>
+        <Link to={`/article/${id}`}>
+          <Button color="primary" style={{ float: "right" }}>Detail</Button>
+        </Link>
       </CardBody>
     </Card>
   )
